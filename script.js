@@ -246,7 +246,7 @@
   });
 
   document.addEventListener("keydown", (e) => {
-    if (!lightboxEl.hidden) {
+    if (lightboxEl.classList.contains("is-open")) {
       if (e.key === "Escape") closeLightbox();
       return;
     }
@@ -261,11 +261,11 @@
     lightboxImgEl.src = src;
     zoomScale = 1;
     applyZoom();
-    lightboxEl.hidden = false;
+    lightboxEl.classList.add("is-open");
   }
 
   function closeLightbox() {
-    lightboxEl.hidden = true;
+    lightboxEl.classList.remove("is-open");
     lightboxImgEl.src = "";
   }
 
@@ -295,7 +295,7 @@
   lightboxStageEl.addEventListener(
     "wheel",
     (e) => {
-      if (lightboxEl.hidden) return;
+      if (!lightboxEl.classList.contains("is-open")) return;
       e.preventDefault();
       zoomScale = e.deltaY < 0
         ? Math.min(4, zoomScale + 0.15)
