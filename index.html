@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Flashcard Ôn Tập — ĐH Y Dược Buôn Ma Thuột</title>
-<!-- v5: nếu vẫn thấy giao diện cũ, đổi số ?v=5 dưới đây thành ?v=6, 7... để ép trình duyệt tải lại -->
-<link rel="stylesheet" href="style.css?v=5" />
+<!-- v6: nếu vẫn thấy giao diện cũ, đổi số ?v=6 dưới đây thành ?v=7, 8... để ép trình duyệt tải lại -->
+<link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
 
@@ -84,7 +84,20 @@
     <p class="empty-state" id="emptyState" hidden></p>
   </div>
 
-<script src="config.js?v=5"></script>
-<script src="script.js?v=5"></script>
+  <!-- Lightbox: click ảnh để phóng to / thu nhỏ -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-toolbar">
+      <button class="lb-btn" id="lbZoomOut" aria-label="Thu nhỏ">−</button>
+      <button class="lb-btn" id="lbZoomReset" aria-label="Về kích thước gốc">100%</button>
+      <button class="lb-btn" id="lbZoomIn" aria-label="Phóng to">+</button>
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Đóng">✕</button>
+    </div>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img id="lightboxImg" src="" alt="Hình phóng to" />
+    </div>
+  </div>
+
+<script src="config.js?v=6"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
