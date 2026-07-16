@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flashcard Ôn Tập — ĐH Y Dược Buôn Ma Thuột</title>
+<!-- v5: nếu vẫn thấy giao diện cũ, đổi số ?v=5 dưới đây thành ?v=6, 7... để ép trình duyệt tải lại -->
+<link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <img
+        class="brand-logo"
+        src="https://raw.githubusercontent.com/vmtienbmu99/cameratest/refs/heads/main/assets/logo.png"
+        alt="Đại học Y Dược Buôn Ma Thuột"
+        width="120"
+        height="54"
+        style="width:120px;height:54px;max-width:120px;max-height:54px;object-fit:contain;display:block;" />
+      <div class="brand-text">
+        <h1 class="brand-title">Flashcard Ôn Tập</h1>
+        <p class="brand-sub">Chọn chủ đề · lật thẻ · học thuộc</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <nav class="tabs" id="tabs" aria-label="Danh sách chủ đề">
+      <div class="tabs-loading" id="tabsLoading">Đang tải danh sách chủ đề…</div>
+    </nav>
+
+    <main class="panel" id="stage" hidden>
+      <div class="panel-header">
+        <span class="deck-name" id="deckName"></span>
+        <span class="deck-progress" id="deckProgress"></span>
+      </div>
+
+      <div class="card-wrap">
+        <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Thẻ trước">&#8592;</button>
+
+        <div class="card" id="card" tabindex="0" role="button" aria-label="Nhấn để lật thẻ">
+          <div class="card-inner" id="cardInner">
+
+            <div class="card-face card-front" id="cardFront">
+              <div class="tag-pin" id="frontTag"></div>
+              <div class="front-content" id="frontContent">
+                <div class="front-text">
+                  <p class="q-text" id="qText"></p>
+                </div>
+                <div class="front-image" id="frontImageWrap">
+                  <img class="q-img" id="qImg" alt="Hình minh họa" hidden />
+                  <span class="zoom-hint">🔍 chạm để phóng to</span>
+                </div>
+              </div>
+              <span class="flip-hint">chạm vào phần chữ để xem đáp án</span>
+            </div>
+
+            <div class="card-face card-back" id="cardBack">
+              <div class="level-row">
+                <span class="level-label">Độ khó</span>
+                <span class="level-stars" id="levelStars"></span>
+              </div>
+              <div class="card-scroll">
+                <p class="a-label">Đáp án</p>
+                <p class="a-text" id="aText"></p>
+                <p class="e-text" id="eText"></p>
+              </div>
+              <span class="flip-hint">chạm để quay lại câu hỏi</span>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="nav-arrow nav-next" id="nextBtn" aria-label="Thẻ sau">&#8594;</button>
+      </div>
+
+      <div class="controls">
+        <button class="ctrl-btn ctrl-primary" id="shuffleBtn">🔀 Xáo lại</button>
+        <button class="ctrl-btn" id="restartBtn">↺ Học lại từ đầu</button>
+      </div>
+    </main>
+
+    <p class="empty-state" id="emptyState" hidden></p>
+  </div>
+
+  <!-- Lightbox: click ảnh để phóng to / thu nhỏ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox-toolbar">
+      <button class="lb-btn" id="lbZoomOut" aria-label="Thu nhỏ">−</button>
+      <button class="lb-btn" id="lbZoomReset" aria-label="Về kích thước gốc">100%</button>
+      <button class="lb-btn" id="lbZoomIn" aria-label="Phóng to">+</button>
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Đóng">✕</button>
+    </div>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img id="lightboxImg" src="" alt="Hình phóng to" />
+    </div>
+  </div>
+
+<script src="config.js?v=5"></script>
+<script src="script.js?v=5"></script>
+</body>
+</html>
