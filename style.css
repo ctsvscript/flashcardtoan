@@ -385,19 +385,19 @@ body {
 .ctrl-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
 
 /* ---------- Lightbox ---------- */
+/* Mặc định LUÔN ẨN — chỉ hiện khi JS gắn thêm class "is-open".
+   Không dựa vào thuộc tính HTML "hidden" nữa để tránh xung đột cascade. */
 .lightbox {
   position: fixed;
   inset: 0;
   background: rgba(20, 24, 33, 0.88);
   z-index: 100;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
-/* Quan trọng: thuộc tính HTML "hidden" phải luôn thắng display:flex ở trên,
-   nếu không lightbox sẽ đè lên toàn màn hình dù đã "đóng". */
-.lightbox[hidden] {
-  display: none;
+.lightbox.is-open {
+  display: flex;
 }
 
 .lightbox-toolbar {
